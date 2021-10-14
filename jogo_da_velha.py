@@ -64,6 +64,19 @@ def choose_player():
         print(p, "is not 1 or 2, try again\n")
         choose_player()
 
+def choose_level():
+    global level
+    x = input("Press 1 to easy: ")
+    if x == "1":
+        level = "easy"
+#    elif x == "2":
+#        level = "normal"
+#    elif x == "3":
+#        level = "hard"
+    else:
+        print(p, "is not 1, 2 or 3, try again\n")
+        choose_level()
+
 def human_select_field():
     f = input("select a empty field: ")
     if f not in table:
@@ -83,6 +96,15 @@ def computer_select_field():
             table[int(f)] = computer
             verify_win(computer)
             print_table()
+    #elif level == "normal":
+    #    f = sample(table, 1)
+     #   f = f[0]
+      #  if f == computer or f == human:
+       #     computer_select_field()
+        #else:
+         #   table[int(f)] = computer
+          #  verify_win(computer)
+           # print_table()
 
 def start():
     clear()
@@ -92,7 +114,7 @@ def start():
     level = "easy"
     clear()
     choose_player()
-    #choose_level()
+    choose_level()
     print_table()
     if human == "X":
         for i in range(len(table)):
